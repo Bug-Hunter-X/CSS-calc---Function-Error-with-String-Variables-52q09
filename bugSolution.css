@@ -1,0 +1,25 @@
+The solution is to ensure the CSS variable holds a numeric value, removing any units within the variable declaration itself.  Then, append the desired unit within the `calc()` function:
+
+```css
+:root {
+  --my-width: 100; /* Correct: numeric value */
+}
+
+.container {
+  width: calc(2 * var(--my-width) + px); /* Correct: adding unit within calc */
+}
+```
+
+Alternatively, you can perform the calculation before assigning the value to the CSS variable:
+
+```css
+:root {
+  --my-width: 200px; 
+}
+
+.container {
+  width: var(--my-width); 
+}
+```
+
+By ensuring that the CSS variable holds a pure numeric value and adding the unit within the `calc()` function, you avoid the error and achieve the intended result.
