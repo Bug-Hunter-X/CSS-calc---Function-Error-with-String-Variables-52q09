@@ -1,0 +1,13 @@
+The following CSS code snippet demonstrates an uncommon error that can occur when using CSS variables (custom properties) within a calc() function.  The error arises from attempting to perform mathematical operations directly on CSS variables that hold string values instead of numeric values. This can lead to unexpected or incorrect results.
+
+```css
+:root {
+  --my-width: "100px"; 
+}
+
+.container {
+  width: calc(2 * var(--my-width)); /* Incorrect: string multiplication */
+}
+```
+
+The `calc()` function expects numeric values.  Directly multiplying a string value ("100px") within `calc()` will not work correctly. 
